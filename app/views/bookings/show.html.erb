@@ -1,0 +1,50 @@
+<%# Show Page For Bookings %>
+<div>
+    <h3>Booking Details</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    Room Name
+                </th>
+                <th>
+                    Room Capacity
+                </th>
+                <th>
+                    Booking Start Date
+                </th>
+                <th>
+                    Booking End Date
+                </th>
+                <th>
+                    Purpose
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <%= @booking.room.name %> 
+                </td>
+                <td>
+                    <%= @booking.room.capacity %> 
+                </td>
+                <td>
+                    <%= @booking.start %> 
+                </td>
+                <td>
+                    <%= @booking.end %> 
+                </td>
+                <td>
+                    <%= @booking.purpose %> 
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <%# Edit Booking %>
+        <%= link_to "Edit Booking", edit_booking_path(@booking.id) %>
+        <%# Destroy Booking %>
+    <%=button_to "Delete Booking", booking_path(@booking.id), method: :delete, data: { confirm: "Are you sure?" } %>
+    </div>
+</div>

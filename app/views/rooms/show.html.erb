@@ -1,2 +1,39 @@
-<%=@room.name%>
-<%=@room.capacity%>
+
+<div>
+
+<div>
+    <h5>Room Name : <%=@room.name%></h5>
+        
+</div>
+<div>
+    <h5>Capacity : <%=@room.capacity%></h5>
+        
+</div>
+
+</div>
+<div>
+
+<div>
+    <h5>Bookings</h5>
+    <table>
+    <thead>
+        <tr>
+            <th>Start</th>
+            <th>End</th>
+            <th>Purpose</th>
+        </tr>
+    <tbody>
+    <%@room.bookings.each do |booking|%>
+        <tr>
+            <td> <%=booking.start%></td>
+            <td> <%=booking.end%></td>
+            <td> <%=booking.purpose%></td>
+        </tr>
+    <%end%>
+    </tbody>
+    </table>
+
+</div>
+<%= link_to "Go back", root_path()%>
+<%= link_to "Edit", edit_room_path(@room.id)%>
+<%= button_to "Delete", room_path(@room.id), method: :delete, data: { confirm: "Are you sure?" } %>

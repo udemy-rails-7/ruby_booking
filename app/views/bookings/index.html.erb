@@ -1,0 +1,48 @@
+<div>
+    <div>
+    <h3>All Bookings</h3>
+    <%=link_to "Create New Booking", new_booking_path%>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    Room Name
+                </th>
+                <th>
+                    Room Capacity
+                </th>
+                <th>
+                    Booking Start Date
+                </th>
+                <th>
+                    Booking End Date
+                </th>
+                <th>
+                    Purpose
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @bookings.each do |booking| %>
+                <tr>
+                    <td>
+                        <%=link_to booking.room.name, booking_path(booking.id) %>
+                    </td>
+                    <td>
+                        <%= booking.room.capacity %>
+                    </td>
+                    <td>
+                        <%= booking.start %>
+                    </td>
+                    <td>
+                        <%= booking.end %>
+                    </td>
+                    <td>
+                        <%= booking.purpose %>
+                    </td>
+                </tr>
+            <% end %>
+
+    </table>
+</div>
